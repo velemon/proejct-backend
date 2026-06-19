@@ -1,2 +1,5 @@
 # Node-moduler
 node_modules/
+
+# Miljövariabler
+.env

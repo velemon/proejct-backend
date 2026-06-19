@@ -1,6 +1,10 @@
 // server.js - Denna fil startar servern och hanterar API-rutter. Den använder Express.js 
 // för att skapa en webbserver och CORS för att tillåta cross-origin requests. 
 // Den lyssnar på port 3000 och loggar när servern är igång.
+
+// Ladda miljövariabler från .env-filen
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
 
