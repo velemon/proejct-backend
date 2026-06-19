@@ -51,7 +51,7 @@ router.get("/:id", (req, res) => {
     );
 });
 
-// SKapa maträtt
+// CREATE maträtt
 router.post("/", (req, res) => {
 
     // Hämta nödvändiga fält från request-body
@@ -95,7 +95,7 @@ router.post("/", (req, res) => {
     );
 });
 
-// Uppdatera maträtt
+// UPDATE maträtt
 router.put("/:id", (req, res) => {
 
     // Hämta ID från URL-parametrar
@@ -140,7 +140,7 @@ router.put("/:id", (req, res) => {
     );
 });
 
-// Radera maträtt
+// DELETE maträtt
 router.delete("/:id", (req, res) => {
 
     // Hämta ID från URL-parametrar
