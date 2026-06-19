@@ -5,11 +5,25 @@
 const mysql = require("mysql2");
 
 // Skapa en anslutning till MySQL-databasen
-const connection = mysql.createConnection({
+const db = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
     database: "kfc_project"
 });
 
-module.exports = connection;
+// Försök att ansluta till databasen och logga resultatet
+db.connect((err) => {
+
+    // Om det uppstår ett fel, logga det och returnera
+    if (err) {
+        console.log(err);
+        return;
+    }
+
+    // Om anslutningen är framgångsrik, logga detta meddelandet
+    console.log("Databasen är ansluten");
+});
+
+// Exportera anslutningen så att den kan användas i andra filer
+module.exports = db;
