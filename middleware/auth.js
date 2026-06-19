@@ -1,12 +1,9 @@
-// auth.js - Denna fil innehåller middleware-funktionen som används för att autentisera användare.
-// Den kontrollerar om en JWT-token finns i request-headern och verifierar den.
-// Om token är giltig, läggs den avkodade informationen till i request-objektet och nästa middleware-funktion anropas.
-// Om token saknas eller är ogiltig, returneras en 401 Unauthorized-status med ett felmeddelande.
+// auth.js - Denna fil innehåller middleware-funktionen som används för att autentisera användare
 
 const jwt = require("jsonwebtoken");
 
 // Hemlig nyckel för att signera och verifiera JWT
-const SECRET_KEY = "kfc_secret_key";
+const SECRET_KEY = process.env.JWT_SECRET;
 
 // Middleware-funktion för att autentisera användare
 module.exports = (req, res, next) => {

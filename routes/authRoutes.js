@@ -1,12 +1,12 @@
 // authRoutes.js - Denna fil innehåller en route för att hantera inloggning.
-// När en POST-förfrågan görs till /api/auth/login, kontrolleras användarnamn och lösenord.
-// Om inloggningen är korrekt, genereras en JWT-token som skickas tillbaka i svaret.
-// Om inloggningen är felaktig, returneras en 401 Unauthorized-status med ett felmeddelande.
 
 // Importera nödvändiga moduler
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
+
+// Hämta JWT-secret från miljövariabler (.env)
+const SECRET_KEY = process.env.JWT_SECRET;
 
 // Route för inloggning
 router.post("/login", (req, res) => {
@@ -14,16 +14,16 @@ router.post("/login", (req, res) => {
     // Hämta användarnamn och lösenord från request-body
     const { username, password } = req.body;
 
-    // Kontrollera om användarnamn och lösenord är korrekta
-    if(
+    // Enkel kontroll av inloggningsuppgifter
+    if (
         username === "admin" &&
         password === "123456"
     ) {
 
-        // Generera en JWT-token med användarnamn som payload och en hemlig nyckel
+        // Generera en JWT-token med användarinformation
         const token = jwt.sign(
             { username },
-            "hemlignyckel",
+            SECRET_KEY,
             { expiresIn: "1h" }
         );
 

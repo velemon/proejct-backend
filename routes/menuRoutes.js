@@ -1,3 +1,5 @@
+// menuRoutes.js - Denna fil hanterar alla API-rutter relaterade till maträtter (menu)
+const auth = require("../middleware/auth");
 const express = require("express");
 const router = express.Router();
 const db = require("../models/db");
