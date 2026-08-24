@@ -61,8 +61,8 @@ kfc_project
 
 ## Användning
 
-| **Metod** | **Ändpunkt** | **Beskrivning** |
-| **JWT** | ------------- | --------------------------------------------------------------------------------- |
+| **Metod** | **Ändpunkt** | **Beskrivning** | **JWT** |  
+| --------- | ------------ | --------------- | ------- |
 | GET | /api/menu | Hämtar alla maträtter poster. | Nej |
 | GET | /api/menu/:ID | Hämtar en maträtt med angivet ID. | Nej |
 | POST | /api/menu | Skapar en maträtt | Ja |
