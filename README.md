@@ -6,6 +6,19 @@ Webbtjänsten är byggd med **Node.js, Express och MariaDB/MySQL** och används 
 
 API:et stödjer CRUD och använder **JWT** för att skydda administrativa funktioner.
 
+Projektet består av tre separata delar:
+
+REST-webbtjänst:
+Node.js + Express + MariaDB/MySQL + JWT.
+
+Administrationsgränssnitt:
+Används av personal för att logga in och administrera menyn.
+
+Publik webbplats:
+Hämtar menydata från REST API:et och presenterar den för besökare.
+
+Den publika webbplatsen kan läsa menydata utan inloggning, medan ändringar kräver administratörens JWT-token.
+
 ---
 
 ## Teknik
@@ -40,6 +53,10 @@ http://localhost:3000/api/auth/login
 
 API:et använder en MariaDB-databas. Klona ner källkodsfilerna, kör kommando npm install för att installera nödvändiga npm-paket. Starta sedan servern med npm run dev.
 
+Menyinformationen lagras i MariaDB/MySQL-databasen:
+
+kfc_project
+
 ---
 
 ## Användning
@@ -64,3 +81,15 @@ Menydata returneras/skickas som JSON med följande struktur:
     "price": 129
 }
 ```
+---
+
+## JWT
+
+Administrativa funktioner är skyddade med JWT.
+Efter inloggning returneras en token som skickas med vid POST, PUT och DELETE:
+
+Authorization: Bearer DIN_TOKEN
+
+Om en giltig token saknas nekas den skyddade förfrågan.
+
+--- 
